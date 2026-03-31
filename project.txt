@@ -1,0 +1,148 @@
+Simple Hospital Management System - Learning Focused
+Core Features (MVP)
+1. User Authentication & Roles
+Login/Logout with 3 roles: Admin, Doctor, Patient
+
+Simple registration for patients
+
+Password encryption (BCrypt)
+
+2. Patient Management
+Add/View/Update patient details
+
+Search patient by name or ID
+
+Basic medical history (diagnosis, prescriptions)
+
+3. Doctor Management
+Add/View doctor profiles
+
+Set consultation fees
+
+View assigned patients
+
+4. Appointment Booking
+Patients book appointments with available doctors
+
+View available time slots
+
+Cancel/reschedule appointments
+
+Simple status tracking (Pending, Completed, Cancelled)
+
+5. Prescription Management
+Doctors add prescriptions for patients
+
+View prescription history
+
+Basic medicine name, dosage, duration
+
+6. Billing System
+Generate bill for consultation
+
+Calculate total amount (consultation fee + medicine cost)
+
+Mark payment as paid/pending
+
+View bill history
+
+7. Dashboard
+Count of: Total Patients, Doctors, Appointments Today, Revenue Today
+
+Simple charts for weekly appointments
+
+Recent activities list
+
+8. Search & Filter
+Search appointments by date
+
+Filter patients by doctor
+
+Search bills by patient name
+
+Database Tables (Simple)
+text
+1. users (id, name, email, password, role, phone)
+2. patients (id, user_id, dob, blood_group, address, emergency_contact)
+3. doctors (id, user_id, specialization, qualification, consultation_fee)
+4. appointments (id, patient_id, doctor_id, date, time, status, reason)
+5. prescriptions (id, appointment_id, medicine_name, dosage, duration, instructions)
+6. bills (id, appointment_id, consultation_fee, medicine_charges, total, status, date)
+Tech Stack to Learn
+Technology	Purpose
+Spring Boot	Backend framework
+Spring Security	Authentication & authorization
+Spring Data JPA	Database operations
+MySQL/PostgreSQL	Database
+Thymeleaf/React	Frontend (optional)
+Bootstrap	Basic UI styling
+Maven	Dependency management
+Postman	API testing
+API Endpoints Examples
+text
+POST   /api/auth/login          - User login
+POST   /api/auth/register       - Patient registration
+
+GET    /api/patients            - Get all patients
+POST   /api/patients            - Add new patient
+GET    /api/patients/{id}       - Get patient by ID
+
+GET    /api/doctors             - Get all doctors
+GET    /api/doctors/available   - Get available doctors for booking
+
+GET    /api/appointments        - Get appointments (filter by role)
+POST   /api/appointments        - Book appointment
+PUT    /api/appointments/{id}   - Update appointment status
+
+GET    /api/prescriptions/{patientId} - Get patient prescriptions
+POST   /api/prescriptions       - Add prescription
+
+GET    /api/bills/{patientId}   - Get patient bills
+POST   /api/bills               - Generate bill
+PUT    /api/bills/{id}/pay      - Mark as paid
+Learning Outcomes
+By building this simplified version, you'll learn:
+
+Spring Boot Basics: Controllers, Services, Repositories
+
+JPA & Hibernate: Entity mapping, relationships (@OneToMany, @ManyToOne)
+
+Spring Security: Role-based authentication, password encoding
+
+REST APIs: Creating and testing endpoints
+
+Database Design: Normalization, relationships
+
+Validation: Input validation using annotations
+
+Exception Handling: Global exception handling
+
+Dependency Injection: Understanding Spring container
+
+Project Structure: Proper package organization
+
+Basic Frontend Integration: If using Thymeleaf/React
+
+Time Estimate
+Setup & Configuration: 2-3 hours
+
+User Authentication: 4-5 hours
+
+Core CRUD Operations: 8-10 hours
+
+Business Logic: 6-8 hours
+
+Testing & Debugging: 4-5 hours
+
+Total: ~24-30 hours (3-4 days of focused learning)
+
+Why This Works
+✅ Covers all Spring Boot fundamentals
+✅ Real-world scenario but simplified
+✅ Scalable - can add features later
+✅ Good balance of complexity
+✅ Each feature teaches new concepts
+✅ Complete flow from frontend to database
+
+Want me to provide the code structure or start with any specific module?
+

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PracticeSQLPatient {
@@ -42,6 +43,27 @@ public class PracticeSQLPatient {
         long answer = patientRepository.countByGender(gender);
         return answer;
     }
+
+    public List<Patient> findByNameContaining(String prefix){
+
+        int count = patientRepository.countByNameContaining(prefix);
+        List<Patient> patientList = patientRepository.findByNameContaining(prefix);
+        System.out.println("total number of patient containing " + prefix + " " + count);
+        return patientList;
+    }
+
+    public void printAllPatientName(){
+        List<Patient> patientList = patientRepository.findAll();
+        List<String> answer = patientList.stream().map(n->n.getName()).collect(Collectors.toList());
+        System.out.println("List of name of patient" + answer);
+    }
+
+    public void printAllPatientNameUsingJPQL(){
+        List<String> answer = patientRepository.findAllPatientName();
+        System.out.println("list of all patient name : " + answer);
+    }
+
+
 
 
 }

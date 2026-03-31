@@ -20,4 +20,11 @@ public interface PatientRepository extends JpaRepository<Patient,Long> {
     List<Patient> getPatientByBirthDateAfter(LocalDate birthDate);
 
     long countByGender(String gender);
+
+    List<Patient> findByNameContaining(String prefix);
+
+    int countByNameContaining(String prefix);
+
+    @Query("select p.name from Patient p")
+    List<String> findAllPatientName();
 }
